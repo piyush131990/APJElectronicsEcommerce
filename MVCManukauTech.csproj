@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <UserSecretsId>aspnet-MVCManukauTech-316CAA4A-8B1F-4FEF-926B-FB3F650DF6CF</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp2.0\MVCManukauTech.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="obj\Debug\netcoreapp2.0\MVCManukauTech.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="angularjs" Version="1.7.2" />
+    <PackageReference Include="Braintree" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.4" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
+    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Database\" />
+    <Folder Include="img\" />
+    <Folder Include="Views\Roles\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.assets.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.dll" />
+    <None Include="obj\Debug\netcoreapp2.0\MVCManukauTech.pdb" />
+    <None Include="obj\MVCManukauTech.csproj.nuget.cache" />
+    <None Include="obj\MVCManukauTech.csproj.nuget.g.props" />
+    <None Include="obj\MVCManukauTech.csproj.nuget.g.targets" />
+  </ItemGroup>
+
+</Project>

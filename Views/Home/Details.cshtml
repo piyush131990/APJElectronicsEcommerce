@@ -1,0 +1,60 @@
+﻿@model MVCManukauTech.Models.DB.Products
+
+<div>
+    <h4>Products</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CategoryId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CategoryId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageFileName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageFileName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitCost)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UnitCost)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsDownload)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsDownload)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DownloadFileName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DownloadFileName)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

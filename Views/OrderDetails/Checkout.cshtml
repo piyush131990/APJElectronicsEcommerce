@@ -1,0 +1,88 @@
+﻿@model MVCManukauTech.ViewModels.CheckoutViewModel
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewBag.Title = "Check Out";
+}
+
+<h2>Check Out</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Check Out</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+       
+
+
+       
+
+       
+
+    </div>
+}
+TOTAL AMOUNT: $NZ&nbsp;<input type="text" id="ttamount" value='@string.Format("{0:0.00}",ViewData["GrandTotal"].ToString()) ' />
+<div id="paypal-button"></div>
+
+<div>
+    @Html.ActionLink("Back to List", "ShoppingCart")
+</div>
+
+
+       
+    
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+    var totalfinal = @ViewData["GrandTotal"].ToString() ;
+    var totalamount = totalfinal.toFixed(2);
+    paypal.Button.render({
+        // Configure environment
+        env: 'sandbox',
+        client: {
+            sandbox: 'ASOi8WOz2EvwerU0oX0LX_k44B1PwXT5XhvNdELJhh5G-Rjoh7E1Td_fVxUU3iTm8PXwtUTBev5wzMK6',
+            //production: 'demo_production_client_id'
+        },
+        commit: true,
+        // Customize button (optional)
+        locale: 'en_US',
+        style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill',
+        },
+
+        // Set up a payment
+        payment: function (data, actions) {
+
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: totalamount,
+                        currency: 'NZD'
+                    }
+                }]
+            });
+        },
+        // Execute the payment
+        onAuthorize: function (data, actions) {
+            return actions.payment.execute()
+                .then(function () {
+                    // Show a confirmation message to the buyer
+                    window.alert('Thank you for your purchase!');
+                    return actions.redirect(window, 'Chkupdate');
+                });
+            
+        },
+        //action on cancelling the payment
+        onCancel: function (data,actions) {
+            window.alert('The payment has been cancelled!');
+            return actions.redirect(window, 'returntohome');
+        }
+    }, '#paypal-button');
+</script>

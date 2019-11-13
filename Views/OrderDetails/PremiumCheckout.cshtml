@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVCManukauTech.Models.DB.Premium>
+@{
+    ViewData["Title"] = "Payment here ....";
+}
+<h2>@ViewData["Title"]</h2>
+<div id="paypal-button"></div>
+<input type="submit" name="ActiveUserPremium" id="ActiveUserPremium" hidden />
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+<script>
+    var totalfinal = @ViewData["GrandTotalpremium"].ToString();
+    paypal.Button.render({
+        // Configure environment
+        env: 'sandbox',
+        client: {
+            sandbox: 'ASOi8WOz2EvwerU0oX0LX_k44B1PwXT5XhvNdELJhh5G-Rjoh7E1Td_fVxUU3iTm8PXwtUTBev5wzMK6',
+            //production: 'demo_production_client_id'
+        },
+        // Customize button (optional)
+        locale: 'en_US',
+        style: {
+            size: 'small',
+            color: 'gold',
+            shape: 'pill',
+        },
+
+        // Set up a payment
+        payment: function (data, actions) {
+
+            return actions.payment.create({
+                transactions: [{
+                    amount: {
+                        total: totalfinal,
+                        currency: 'NZD'
+                    }
+                }]
+            });
+        },
+        // Execute the payment
+        onAuthorize: function (data, actions) {
+            return actions.payment.execute()
+                .then(function () {
+                    // Show a confirmation message to the buyer
+                   
+                    window.alert('Thank you for your purchase!');
+                    return actions.redirect(window, 'ActivePremiumUser');
+                });
+        }
+    }, '#paypal-button');
+</script>
+
